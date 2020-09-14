@@ -1,1 +1,4 @@
-console.log("HELLO TYPESCRIPT lol ad");
+import {CsvParser} from "./utils/CsvParser";
+
+CsvParser.printArrayFromTxt();
+
