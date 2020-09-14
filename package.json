@@ -1,0 +1,22 @@
+{
+  "name": "assignment-spellchecker",
+  "version": "1.0.0",
+  "description": "This is an app for spellchecking words",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodecoolGlobal/Assignment-Spellchecker.git"
+  },
+  "author": "Ola-Krzysiek-Ignacy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodecoolGlobal/Assignment-Spellchecker/issues"
+  },
+  "homepage": "https://github.com/CodecoolGlobal/Assignment-Spellchecker#readme",
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  }
+}
