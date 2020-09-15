@@ -10,17 +10,19 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.CsvParser = void 0;
-    var CsvParser;
-    (function (CsvParser) {
-        function printArrayFromTxt() {
+    var CsvParser = /** @class */ (function () {
+        function CsvParser() {
+        }
+        CsvParser.printArrayFromTxt = function () {
             var fs = require('fs');
             var data = fs.readFileSync('../wordlist.txt')
                 .toString() // convert Buffer to string
                 .split('\n') // split string to lines
                 .map(function (e) { return e.trim(); });
             console.log(data.slice(2, 10));
-        }
-        CsvParser.printArrayFromTxt = printArrayFromTxt;
-    })(CsvParser = exports.CsvParser || (exports.CsvParser = {}));
+        };
+        return CsvParser;
+    }());
+    exports.CsvParser = CsvParser;
 });
 //# sourceMappingURL=CsvParser.js.map

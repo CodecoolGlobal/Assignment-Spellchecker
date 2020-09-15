@@ -1,6 +1,6 @@
-export module CsvParser {
+export class CsvParser {
 
-    export function printArrayFromTxt()
+    static printArrayFromTxt()
     {
         const fs = require('fs');
 
