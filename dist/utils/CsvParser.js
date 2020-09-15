@@ -4,17 +4,17 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports"], factory);
+        define(["require", "exports", "fs"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.CsvParser = void 0;
+    var fs = require("fs");
     var CsvParser = /** @class */ (function () {
         function CsvParser() {
         }
         CsvParser.printArrayFromTxt = function () {
-            var fs = require('fs');
             var data = fs.readFileSync('../wordlist.txt')
                 .toString() // convert Buffer to string
                 .split('\n') // split string to lines
