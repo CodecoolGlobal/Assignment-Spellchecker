@@ -20,3 +20,4 @@ data.convertToHashTable();
 console.log(data.getItem("a"));
 console.log(data.getItem("accept"));
 console.log(data.getItem("venom"));
+console.log(data.lookup("venom"));

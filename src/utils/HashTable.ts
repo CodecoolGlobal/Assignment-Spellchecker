@@ -3,10 +3,12 @@ import {BetterStringHasher} from "../hashers/BetterStringHasher";
 
 export class HashTable {
     table: Array<number>;
+    data: Array<string>;
 
     constructor() {
         const length = CsvParser.parseDataToArray().length;
         this.table = new Array(length);
+        this.data = CsvParser.parseDataToArray();
     }
 
 
@@ -21,12 +23,19 @@ export class HashTable {
     }
 
     public convertToHashTable() {
-        let data: Array<string> = CsvParser.parseDataToArray();
-
-        for (let i = 0; i < data.length; i++) {
-            const hashedWord = new BetterStringHasher().hash(data[i]);
-            this.setItem(data[i], hashedWord);
+        for (let i = 0; i < this.data.length; i++) {
+            const hashedWord = new BetterStringHasher().hash(this.data[i]);
+            this.setItem(this.data[i], hashedWord);
         }
+    }
+
+    public removeItem(word: string): void {
+        this.data.splice(this.data.indexOf(word), 1);
+
+    }
+
+    public lookup(word: string): boolean {
+        return this.data.includes(word);
     }
 
 }

@@ -16,6 +16,7 @@
         function HashTable() {
             var length = CsvParser_1.CsvParser.parseDataToArray().length;
             this.table = new Array(length);
+            this.data = CsvParser_1.CsvParser.parseDataToArray();
         }
         HashTable.prototype.setItem = function (key, value) {
             var index = hashKeyToIndexNumber(key, this.table.length);
@@ -26,11 +27,16 @@
             return this.table[index];
         };
         HashTable.prototype.convertToHashTable = function () {
-            var data = CsvParser_1.CsvParser.parseDataToArray();
-            for (var i = 0; i < data.length; i++) {
-                var hashedWord = new BetterStringHasher_1.BetterStringHasher().hash(data[i]);
-                this.setItem(data[i], hashedWord);
+            for (var i = 0; i < this.data.length; i++) {
+                var hashedWord = new BetterStringHasher_1.BetterStringHasher().hash(this.data[i]);
+                this.setItem(this.data[i], hashedWord);
             }
+        };
+        HashTable.prototype.removeItem = function (word) {
+            this.data.splice(this.data.indexOf(word), 1);
+        };
+        HashTable.prototype.lookup = function (word) {
+            return this.data.includes(word);
         };
         return HashTable;
     }());
