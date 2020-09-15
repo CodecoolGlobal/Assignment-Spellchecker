@@ -1,0 +1,46 @@
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports", "./CsvParser", "../hashers/BetterStringHasher"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.HashTable = void 0;
+    var CsvParser_1 = require("./CsvParser");
+    var BetterStringHasher_1 = require("../hashers/BetterStringHasher");
+    var HashTable = /** @class */ (function () {
+        function HashTable() {
+            var length = CsvParser_1.CsvParser.parseDataToArray().length;
+            this.table = new Array(length);
+        }
+        HashTable.prototype.setItem = function (key, value) {
+            var index = hashKeyToIndexNumber(key, this.table.length);
+            this.table[index] = value;
+        };
+        HashTable.prototype.getItem = function (key) {
+            var index = hashKeyToIndexNumber(key, this.table.length);
+            return this.table[index];
+        };
+        HashTable.prototype.convertToHashTable = function () {
+            var data = CsvParser_1.CsvParser.parseDataToArray();
+            for (var i = 0; i < data.length; i++) {
+                var hashedWord = new BetterStringHasher_1.BetterStringHasher().hash(data[i]);
+                this.setItem(data[i], hashedWord);
+            }
+        };
+        return HashTable;
+    }());
+    exports.HashTable = HashTable;
+    function hashKeyToIndexNumber(word, tableSize) {
+        var hash = 3;
+        for (var i = 0; i < word.length; i++) {
+            hash = hash * word.charCodeAt(i) % tableSize;
+        }
+        return hash;
+    }
+});
+//# sourceMappingURL=HashTable.js.map
