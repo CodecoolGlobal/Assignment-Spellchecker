@@ -1,7 +1,7 @@
 import {CsvParser} from "./utils/CsvParser";
-import {BetterStringHasher} from "./BetterStringHasher";
-import {LousyStringHasher} from "./LousyStringHasher";
-import {DegenerateStringHasher} from "./DegenerateStringHasher";
+import {BetterStringHasher} from "./hashers/BetterStringHasher";
+import {LousyStringHasher} from "./hashers/LousyStringHasher";
+import {DegenerateStringHasher} from "./hashers/DegenerateStringHasher";
 
 CsvParser.printArrayFromTxt();
 
