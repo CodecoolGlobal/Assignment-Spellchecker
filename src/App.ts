@@ -1,5 +1,7 @@
 import {CsvParser} from "./utils/CsvParser";
 import {BetterStringHasher} from "./hashers/BetterStringHasher";
+import {LousyStringHasher} from "./hashers/LousyStringHasher";
+import {DegenerateStringHasher} from "./hashers/DegenerateStringHasher";
 import {HashTable} from "./utils/HashTable";
 
 let hush = new BetterStringHasher();
