@@ -15,7 +15,7 @@
     var SpellChecker = /** @class */ (function () {
         function SpellChecker() {
             this.fileParser = new CsvParser_1.CsvParser();
-            // this.wordsList = this.fileParser.parse();// put correct method
+            // this.wordsList = this.fileParser.();// put correct method
         }
         SpellChecker.prototype.findByCharDeleting = function (word, wordsList) {
             var replacement = [];

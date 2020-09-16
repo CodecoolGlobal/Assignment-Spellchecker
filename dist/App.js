@@ -20,14 +20,15 @@
     // console.log(degenerateStringHasher);
     // let data = new HashTable();
     // data.convertToHashTable();
-    //
-    console.log(data.getItem("a"));
-    console.log(data.getItem("accept"));
-    console.log(data.getItem("venom"));
-    console.log(data.lookup("venom"));
+    // //
+    // console.log(data.getItem("a"));
+    // console.log(data.getItem("accept"));
+    // console.log(data.getItem("venom"));
+    // console.log(data.lookup("venom"));
     var WordChecker_1 = require("./WordChecker");
     var list = CsvParser_1.CsvParser.parseDataToArray();
     var wordchecker = new WordChecker_1.WordChecker(list);
     console.log(wordchecker.checkInsertingLetterInEachPositionOfTheString("acept"));
+    console.log(wordchecker.checkReplacingEachLetterWithAnother("acxept"));
 });
 //# sourceMappingURL=App.js.map

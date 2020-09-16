@@ -12,7 +12,7 @@
     exports.WordChecker = void 0;
     var WordChecker = /** @class */ (function () {
         function WordChecker(listOfWords) {
-            this.alphabet = "ABCDEFGHIJKLMNOPQRSTVWXYZ";
+            this.alphabet = "abcdefghijklmnopqrstuvwxyz";
             this.listOfWords = listOfWords;
         }
         WordChecker.prototype.checkInsertingLetterInEachPositionOfTheString = function (word) {
@@ -20,7 +20,7 @@
             for (var position = 0; position < word.length; position++) {
                 for (var i = 0; i < this.alphabet.length; i++) {
                     var suggestion = ''; //StringBuffer stringBuffer = new StringBuffer;
-                    suggestion = [word.slice(0, position), this.alphabet[i].toLowerCase(), word.slice(position)].join('');
+                    suggestion = [word.slice(0, position), this.alphabet[i], word.slice(position)].join('');
                     if (this.listOfWords.includes(suggestion) && !suggestions.includes(suggestion)) {
                         suggestions.push(suggestion);
                     }
@@ -28,17 +28,18 @@
             }
             return suggestions;
         };
-        WordChecker.prototype.checkReplacingEachLetterWithAnother = function (word, suggestions) {
+        WordChecker.prototype.checkReplacingEachLetterWithAnother = function (word) {
+            var suggestions = [];
             for (var position = 0; position < word.length; position++) {
                 for (var i = 0; i < this.alphabet.length; i++) {
-                    var suggestionArray = [];
-                    suggestionArray.splice(position, 0, this.alphabet[i]);
-                    var suggestion = suggestionArray.toString();
-                    if (!suggestions.includes(suggestion)) {
-                        suggestions.push(word);
+                    var suggestion = ''; //StringBuffer stringBuffer = new StringBuffer;
+                    suggestion = word.substr(0, position) + this.alphabet[i] + word.substr(position + 1, word.length);
+                    if (this.listOfWords.includes(suggestion) && !suggestions.includes(suggestion)) {
+                        suggestions.push(suggestion);
                     }
                 }
             }
+            return suggestions;
         };
         return WordChecker;
     }());

@@ -26,3 +26,4 @@ import {WordChecker} from "./WordChecker"
 let list = CsvParser.parseDataToArray();
 let wordchecker = new WordChecker(list);
 console.log(wordchecker.checkInsertingLetterInEachPositionOfTheString("acept"));
+console.log(wordchecker.checkReplacingEachLetterWithAnother("acxept"));
