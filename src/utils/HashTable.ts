@@ -29,7 +29,7 @@ export class HashTable {
     }
 
     public removeItem(word: string): void {
-        this.data.splice(this.hashedTable.indexOf(word), 1);
+        if (this.hashedTable.includes(word)) this.data.splice(this.hashedTable.indexOf(word), 1);
 
     }
 
