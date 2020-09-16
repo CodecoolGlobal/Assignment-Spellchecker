@@ -22,9 +22,9 @@ export class HashTable {
         return this.table[index];
     }
 
-    public convertToHashTable() {
+    public convertToHashTable(hasher: any) {
         for (let i = 0; i < this.data.length; i++) {
-            const hashedWord = new BetterStringHasher().hash(this.data[i]);
+            const hashedWord = hasher.hash(this.data[i]);
             this.setItem(this.data[i], hashedWord);
         }
     }
