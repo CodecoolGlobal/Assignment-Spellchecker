@@ -1,49 +1,41 @@
 import {CsvParser} from "./CsvParser";
-import {BetterStringHasher} from "../hashers/BetterStringHasher";
+import {StringHasher} from "../hashers/StringHasher";
 
 export class HashTable {
-    table: Array<number>;
+    hashedTable: Array<string>;
     data: Array<string>;
+    hasher: StringHasher;
 
-    constructor() {
-        const length = CsvParser.parseDataToArray().length;
-        this.table = new Array(length);
+    constructor(hasher: StringHasher) {
+        this.hashedTable = [];
         this.data = CsvParser.parseDataToArray();
+        this.hasher = hasher;
     }
 
 
-    public setItem(key: string, value: number) {
-        const index = hashKeyToIndexNumber(key, this.table.length);
-        this.table[index] = value;
+    public setItem(key: number, value: string) {
+        this.hashedTable[key] = value;
     }
 
-    public getItem(key: string) {
-        const index = hashKeyToIndexNumber(key, this.table.length)
-        return this.table[index];
+    public getItemByKey(key: number) {
+        return this.hashedTable[key];
     }
 
-    public convertToHashTable(hasher: any) {
+    public convertToHashTable() {
         for (let i = 0; i < this.data.length; i++) {
-            const hashedWord = hasher.hash(this.data[i]);
-            this.setItem(this.data[i], hashedWord);
+            const hashedWord = this.hasher.hash(this.data[i]);
+            this.setItem(hashedWord, this.data[i]);
         }
     }
 
     public removeItem(word: string): void {
-        this.data.splice(this.data.indexOf(word), 1);
+        this.data.splice(this.hashedTable.indexOf(word), 1);
 
     }
 
     public lookup(word: string): boolean {
-        return this.data.includes(word);
+        return this.hashedTable.includes(word);
     }
 
 }
 
-function hashKeyToIndexNumber(word: string, tableSize: number): number {
-    let hash = 3;
-    for (let i = 0; i < word.length; i++) {
-        hash = hash * word.charCodeAt(i) % tableSize;
-    }
-    return hash;
-}
