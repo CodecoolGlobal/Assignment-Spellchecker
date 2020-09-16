@@ -4,14 +4,13 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./CsvParser", "../hashers/BetterStringHasher"], factory);
+        define(["require", "exports", "./CsvParser"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.HashTable = void 0;
     var CsvParser_1 = require("./CsvParser");
-    var BetterStringHasher_1 = require("../hashers/BetterStringHasher");
     var HashTable = /** @class */ (function () {
         function HashTable() {
             var length = CsvParser_1.CsvParser.parseDataToArray().length;
@@ -26,9 +25,9 @@
             var index = hashKeyToIndexNumber(key, this.table.length);
             return this.table[index];
         };
-        HashTable.prototype.convertToHashTable = function () {
+        HashTable.prototype.convertToHashTable = function (hasher) {
             for (var i = 0; i < this.data.length; i++) {
-                var hashedWord = new BetterStringHasher_1.BetterStringHasher().hash(this.data[i]);
+                var hashedWord = hasher.hash(this.data[i]);
                 this.setItem(this.data[i], hashedWord);
             }
         };

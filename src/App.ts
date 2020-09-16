@@ -14,10 +14,15 @@ import {HashTable} from "./utils/HashTable";
 // console.log(lousyStringHasher);
 // console.log(degenerateStringHasher);
 
-let data = new HashTable();
-data.convertToHashTable();
+// let data = new HashTable();
+// data.convertToHashTable();
+// //
+// console.log(data.getItem("a"));
+// console.log(data.getItem("accept"));
+// console.log(data.getItem("venom"));
+// console.log(data.lookup("venom"));
 
-console.log(data.getItem("a"));
-console.log(data.getItem("accept"));
-console.log(data.getItem("venom"));
-console.log(data.lookup("venom"));
+import {WordChecker} from "./WordChecker"
+let list = CsvParser.parseDataToArray();
+let wordchecker = new WordChecker(list);
+console.log(wordchecker.checkInsertingLetterInEachPositionOfTheString("acept"));

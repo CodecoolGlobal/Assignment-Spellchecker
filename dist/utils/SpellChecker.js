@@ -14,8 +14,8 @@
     var filepath = 'wordlist.txt';
     var SpellChecker = /** @class */ (function () {
         function SpellChecker() {
-            this.fileParser = new CsvParser_1.default();
-            this.wordsList = this.fileParser.parse(); // put correct method
+            this.fileParser = new CsvParser_1.CsvParser();
+            // this.wordsList = this.fileParser.parse();// put correct method
         }
         SpellChecker.prototype.findByCharDeleting = function (word, wordsList) {
             var replacement = [];
