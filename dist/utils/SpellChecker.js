@@ -34,7 +34,7 @@
             for (var i = 0; i < word.length; i += 2) {
                 var firstLettertoSwap = word.substring(i, i + 1);
                 var secondLetterToSwap = word.substring(i + 1, i + 2);
-                newWord = word.substring(0, i) + firstLettertoSwap + secondLetterToSwap + word.substring(i + 2);
+                newWord = word.substring(0, i) + secondLetterToSwap + firstLettertoSwap + word.substring(i + 2);
                 if (wordsList.has(newWord)) {
                     replacement.push(newWord);
                 }
