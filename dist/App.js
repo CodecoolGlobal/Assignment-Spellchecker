@@ -56,9 +56,10 @@ import { WordChecker } from "./utils/WordChecker.js";
 // const dupa = userInputReader.getInput();
 const csvParser = new CsvParser();
 csvParser.readFile();
-const wordChecker = new WordChecker(csvParser.lines);
+// const wordChecker = new WordChecker(csvParser.lines);
 const button = document.getElementById('btn-summary');
 button.addEventListener('click', function () {
+    const wordChecker = new WordChecker(csvParser.lines);
     console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString('acept'));
 });
 // console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString('acept'))

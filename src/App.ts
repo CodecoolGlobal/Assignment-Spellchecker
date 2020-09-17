@@ -66,11 +66,11 @@ import {WordChecker} from "./utils/WordChecker.js";
 
 const csvParser = new CsvParser();
 csvParser.readFile();
-const wordChecker = new WordChecker(csvParser.lines);
-
+// const wordChecker = new WordChecker(csvParser.lines);
 const button: HTMLElement = document.getElementById('btn-summary')!;
 
 button.addEventListener('click',function(){
+    const wordChecker = new WordChecker(csvParser.lines);
     console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString('acept'))
 })
 
