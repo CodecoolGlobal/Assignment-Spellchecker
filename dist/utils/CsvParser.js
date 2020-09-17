@@ -3,6 +3,9 @@ export class CsvParser {
         this.inputElement = document.getElementById("input");
         this.textAreaElement = document.getElementById("textarea");
     }
+    get lines() {
+        return this._lines;
+    }
     readFile() {
         this.inputElement.addEventListener('change', () => {
             let files = this.inputElement.files;
@@ -13,8 +16,8 @@ export class CsvParser {
             reader.onload = (e) => {
                 const file = e.target.result;
                 if (typeof file === "string") {
-                    const lines = file.split(/\r\n|\n/);
-                    this.textAreaElement.value = lines.join('\n');
+                    this._lines = file.split(/\r\n|\n/);
+                    this.textAreaElement.value = this._lines.join('\n');
                 }
             };
             reader.onerror = (e) => alert(e.target.error.name);

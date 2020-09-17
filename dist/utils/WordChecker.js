@@ -1,7 +1,10 @@
-class WordChecker {
+export class WordChecker {
     constructor(listOfWords) {
         this.alphabet = "abcdefghijklmnopqrstuvwxyz";
-        this.listOfWords = listOfWords;
+        this._listOfWords = listOfWords;
+    }
+    get listOfWords() {
+        return this._listOfWords;
     }
     checkInsertingLetterInEachPositionOfTheString(word) {
         const suggestions = [];
@@ -9,7 +12,7 @@ class WordChecker {
             for (let i = 0; i < this.alphabet.length; i++) {
                 let suggestion = ''; //StringBuffer stringBuffer = new StringBuffer;
                 suggestion = [word.slice(0, position), this.alphabet[i], word.slice(position)].join('');
-                if (this.listOfWords.includes(suggestion) && !suggestions.includes(suggestion)) {
+                if (this._listOfWords.includes(suggestion) && !suggestions.includes(suggestion)) {
                     suggestions.push(suggestion);
                 }
             }
@@ -22,7 +25,7 @@ class WordChecker {
             for (let i = 0; i < this.alphabet.length; i++) {
                 let suggestion = ''; //StringBuffer stringBuffer = new StringBuffer;
                 suggestion = word.substr(0, position) + this.alphabet[i] + word.substr(position + 1, word.length);
-                if (this.listOfWords.includes(suggestion) && !suggestions.includes(suggestion)) {
+                if (this._listOfWords.includes(suggestion) && !suggestions.includes(suggestion)) {
                     suggestions.push(suggestion);
                 }
             }

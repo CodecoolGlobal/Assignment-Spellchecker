@@ -1,4 +1,7 @@
 import { CsvParser } from "./utils/CsvParser.js";
+// import {HashTable} from "./utils/HashTable";
+// import {UserInputReader} from "./utils/UserInputReader.js";
+import { WordChecker } from "./utils/WordChecker.js";
 // import * as fs from "fs";
 // import * as fs from "fs";
 // import * as fs from '../node_modules/fs';
@@ -49,8 +52,16 @@ import { CsvParser } from "./utils/CsvParser.js";
 //
 //     // const csvParser = CsvParser.parseDataToArray();
 //     console.log(parseDataToArray());
+// const userInputReader = new UserInputReader();
+// const dupa = userInputReader.getInput();
 const csvParser = new CsvParser();
 csvParser.readFile();
+const wordChecker = new WordChecker(csvParser.lines);
+const button = document.getElementById('btn-summary');
+button.addEventListener('click', function () {
+    console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString('acept'));
+});
+// console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString('acept'))
 // }
 // main();
 //# sourceMappingURL=App.js.map
