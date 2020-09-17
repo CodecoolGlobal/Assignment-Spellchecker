@@ -1,11 +1,7 @@
 import { CsvParser } from "./utils/CsvParser.js";
+import { WordChecker } from "./utils/WordChecker.js";
 // import {HashTable} from "./utils/HashTable";
 // import {UserInputReader} from "./utils/UserInputReader.js";
-import { WordChecker } from "./utils/WordChecker.js";
-// import * as fs from "fs";
-// import * as fs from "fs";
-// import * as fs from '../node_modules/fs';
-// CsvParser.parseDataToArray();
 // const betterStringHasher = new BetterStringHasher().hash('dupa');
 // const lousyStringHasher = new LousyStringHasher().hash('dupa');
 // const degenerateStringHasher = new DegenerateStringHasher().hash('dupa');
@@ -49,7 +45,6 @@ import { WordChecker } from "./utils/WordChecker.js";
 //         .split('\n') // split string to lines
 //         .map((e: string) => e.trim());
 // }
-//
 //     // const csvParser = CsvParser.parseDataToArray();
 //     console.log(parseDataToArray());
 // const userInputReader = new UserInputReader();
@@ -60,9 +55,7 @@ csvParser.readFile();
 const button = document.getElementById('btn-summary');
 button.addEventListener('click', function () {
     const wordChecker = new WordChecker(csvParser.lines);
-    console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString('acept'));
+    const inputValue = document.getElementById('ex1').value;
+    console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString(inputValue));
 });
-// console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString('acept'))
-// }
-// main();
 //# sourceMappingURL=App.js.map

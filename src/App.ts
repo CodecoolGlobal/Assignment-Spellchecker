@@ -1,16 +1,10 @@
 import {CsvParser} from "./utils/CsvParser.js";
+import {WordChecker} from "./utils/WordChecker.js";
 import {BetterStringHasher} from "./hashers/BetterStringHasher";
 import {LousyStringHasher} from "./hashers/LousyStringHasher";
 import {DegenerateStringHasher} from "./hashers/DegenerateStringHasher";
 // import {HashTable} from "./utils/HashTable";
 // import {UserInputReader} from "./utils/UserInputReader.js";
-
-import {WordChecker} from "./utils/WordChecker.js";
-// import * as fs from "fs";
-// import * as fs from "fs";
-// import * as fs from '../node_modules/fs';
-
-// CsvParser.parseDataToArray();
 
 // const betterStringHasher = new BetterStringHasher().hash('dupa');
 // const lousyStringHasher = new LousyStringHasher().hash('dupa');
@@ -56,10 +50,8 @@ import {WordChecker} from "./utils/WordChecker.js";
 //         .split('\n') // split string to lines
 //         .map((e: string) => e.trim());
 // }
-//
 //     // const csvParser = CsvParser.parseDataToArray();
 //     console.log(parseDataToArray());
-
 
 // const userInputReader = new UserInputReader();
 // const dupa = userInputReader.getInput();
@@ -69,14 +61,8 @@ csvParser.readFile();
 // const wordChecker = new WordChecker(csvParser.lines);
 const button: HTMLElement = document.getElementById('btn-summary')!;
 
-button.addEventListener('click',function(){
+button.addEventListener('click', function () {
     const wordChecker = new WordChecker(csvParser.lines);
-    console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString('acept'))
+    const inputValue: string = (<HTMLInputElement>document.getElementById('ex1')).value;
+    console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString(inputValue))
 })
-
-
-
-// console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString('acept'))
-
-// }
-// main();
