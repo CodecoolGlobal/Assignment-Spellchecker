@@ -11,9 +11,9 @@ const init = () => {
         if (el.hasChildNodes()) cleanSuggestions();
         const wordChecker = new WordChecker(csvParser.lines);
         const inputValue: string = (<HTMLInputElement>document.getElementById('ex1')).value;
-        // addSuggestions(wordChecker.checkInsertingLetterInEachPositionOfTheString(inputValue));
+        addSuggestions(wordChecker.checkInsertingLetterInEachPositionOfTheString(inputValue));
         // addSuggestions(wordChecker.checkReplacingEachLetterWithAnother(inputValue));
-        addSuggestions(wordChecker.findByCharDeleting(inputValue));
+        // addSuggestions(wordChecker.findByCharDeleting(inputValue));
         // addSuggestions(wordChecker.findByCharsSwapping(inputValue));
     })
 

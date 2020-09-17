@@ -36,10 +36,10 @@ export class WordChecker {
         let suggestions = [];
         let newWord;
         for (let i = 0; i < word.length; i += 2) {
-            const firstLettertoSwap = word.substring(i, i + 1);
-            const secondLetterToSwap = word.substring(i + 1, i + 2);
-            newWord = word.substring(0, i) + secondLetterToSwap + firstLettertoSwap + word.substring(i + 2);
-            if (this._listOfWords.includes(newWord)) {
+            const firstLettertoSwap = word.substring(i, i + 1); //s
+            const secondLetterToSwap = word.substring(i + 1, i + 2); //w
+            newWord = word.substring(0, i) + secondLetterToSwap + firstLettertoSwap + word.substr(i + 2, word.length);
+            if (this._listOfWords.includes(newWord) && !suggestions.includes(newWord)) {
                 suggestions.push(newWord);
             }
             if (suggestions.length > 3) {
@@ -49,8 +49,8 @@ export class WordChecker {
         for (let i = 1; i < word.length; i += 2) {
             const firstLetterToSwap = word.substring(i, i + 1);
             const secondLetterToSwap = word.substring(i + 1, i + 2);
-            newWord = word.substring(0, i) + secondLetterToSwap + firstLetterToSwap + word.substring(i + 2);
-            if (this._listOfWords.includes(newWord)) {
+            newWord = word.substring(0, i) + secondLetterToSwap + firstLetterToSwap + word.substr(i + 2, word.length);
+            if (this._listOfWords.includes(newWord) && !suggestions.includes(newWord)) {
                 suggestions.push(newWord);
             }
             if (suggestions.length > 3) {
@@ -63,8 +63,8 @@ export class WordChecker {
         const suggestions = [];
         let newWord;
         for (let i = 0; i < word.length; i++) {
-            newWord = word.substring(0, i) + word.substring(i + 1);
-            if (this._listOfWords.includes(newWord)) {
+            newWord = word.substr(0, i) + word.substr(i + 1, word.length);
+            if (this._listOfWords.includes(newWord) && !suggestions.includes(newWord)) {
                 suggestions.push(newWord);
             }
         }
