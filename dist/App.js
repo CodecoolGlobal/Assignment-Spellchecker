@@ -5,6 +5,9 @@ const init = () => {
     csvParser.readFile();
     const button = document.getElementById('btn-summary');
     button.addEventListener('click', function () {
+        const el = document.querySelector("ul");
+        if (el.hasChildNodes())
+            cleanSuggestions();
         const wordChecker = new WordChecker(csvParser.lines);
         const inputValue = document.getElementById('ex1').value;
         addSuggestions(wordChecker.checkInsertingLetterInEachPositionOfTheString(inputValue));
@@ -18,6 +21,12 @@ const init = () => {
             liElement.innerText = word;
             ulElement.appendChild(liElement);
         });
+    }
+    function cleanSuggestions() {
+        let ulElement = document.querySelector("ul");
+        while (ulElement.firstChild) {
+            ulElement.removeChild(ulElement.lastChild);
+        }
     }
 };
 init();
