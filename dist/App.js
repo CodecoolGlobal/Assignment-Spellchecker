@@ -1,5 +1,6 @@
 import { CsvParser } from "./utils/CsvParser.js";
 import { WordChecker } from "./utils/WordChecker.js";
+import { SpellChecker } from "./utils/SpellChecker.js";
 const init = () => {
     const csvParser = new CsvParser();
     csvParser.readFile();
@@ -8,9 +9,11 @@ const init = () => {
         const el = document.querySelector("ul");
         if (el.hasChildNodes())
             cleanSuggestions();
+        const spellChecker = new SpellChecker(csvParser.lines);
         const wordChecker = new WordChecker(csvParser.lines);
         const inputValue = document.getElementById('ex1').value;
         addSuggestions(wordChecker.checkInsertingLetterInEachPositionOfTheString(inputValue));
+        addSuggestions(spellChecker.findByCharDeleting(inputValue));
     });
     function addSuggestions(listOfWords) {
         let p = document.querySelector("p");
