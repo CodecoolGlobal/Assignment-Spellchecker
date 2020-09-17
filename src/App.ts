@@ -61,8 +61,10 @@ csvParser.readFile();
 // const wordChecker = new WordChecker(csvParser.lines);
 const button: HTMLElement = document.getElementById('btn-summary')!;
 
+
 button.addEventListener('click', function () {
     const wordChecker = new WordChecker(csvParser.lines);
     const inputValue: string = (<HTMLInputElement>document.getElementById('ex1')).value;
     console.log(wordChecker.checkInsertingLetterInEachPositionOfTheString(inputValue))
+
 })

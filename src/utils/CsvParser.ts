@@ -1,6 +1,5 @@
 export class CsvParser {
     inputElement: HTMLInputElement;
-    textAreaElement: HTMLTextAreaElement;
     private _lines: string[];
 
     get lines(): string[] {
@@ -9,7 +8,6 @@ export class CsvParser {
 
     constructor() {
         this.inputElement = <HTMLInputElement>document.getElementById("input")!;
-        this.textAreaElement = <HTMLTextAreaElement>document.getElementById("textarea")!;
     }
 
     readFile() {
@@ -22,11 +20,11 @@ export class CsvParser {
                 const file = e.target.result;
                 if (typeof file === "string") {
                     this._lines = file.split(/\r\n|\n/);
-                    this.textAreaElement.value = this._lines.join('\n');
                 }
             };
             reader.onerror = (e) => alert(e.target.error.name);
             reader.readAsText(file);
         })
+
     }
 }

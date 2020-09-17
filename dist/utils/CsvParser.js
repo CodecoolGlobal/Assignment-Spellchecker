@@ -1,7 +1,6 @@
 export class CsvParser {
     constructor() {
         this.inputElement = document.getElementById("input");
-        this.textAreaElement = document.getElementById("textarea");
     }
     get lines() {
         return this._lines;
@@ -17,7 +16,6 @@ export class CsvParser {
                 const file = e.target.result;
                 if (typeof file === "string") {
                     this._lines = file.split(/\r\n|\n/);
-                    this.textAreaElement.value = this._lines.join('\n');
                 }
             };
             reader.onerror = (e) => alert(e.target.error.name);
