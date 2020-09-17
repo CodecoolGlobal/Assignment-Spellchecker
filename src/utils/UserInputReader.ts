@@ -9,7 +9,7 @@ export class UserInputReader {
             const input = (<HTMLInputElement>document.getElementById('ex1')).value;
             if (input) {
                 inputVal = input;
-                console.log(inputVal);
+                console.log(inputVal + "lala");
             }
         }
         return inputVal;

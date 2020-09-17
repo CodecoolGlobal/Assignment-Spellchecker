@@ -1,36 +1,56 @@
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
-    }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./utils/HashTable", "./utils/UserInputReader"], factory);
-    }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var HashTable_1 = require("./utils/HashTable");
-    var UserInputReader_1 = require("./utils/UserInputReader");
-    // CsvParser.parseDataToArray();
-    // const betterStringHasher = new BetterStringHasher().hash('dupa');
-    // const lousyStringHasher = new LousyStringHasher().hash('dupa');
-    // const degenerateStringHasher = new DegenerateStringHasher().hash('dupa');
-    //
-    // console.log(betterStringHasher);
-    // console.log(lousyStringHasher);
-    // console.log(degenerateStringHasher);
-    function main() {
-        var userInput = new UserInputReader_1.UserInputReader();
-        userInput.getInput();
-        console.log('test');
-        var data = new HashTable_1.HashTable();
-        data.convertToHashTable();
-        // userInput.getInput();
-        console.log(data.getItem("a"));
-        console.log(data.getItem("accept"));
-        console.log(data.getItem("venom"));
-        console.log(data.lookup("venom"));
-    }
-    main();
-});
+import { CsvParser } from "./utils/CsvParser.js";
+// import * as fs from "fs";
+// import * as fs from "fs";
+// import * as fs from '../node_modules/fs';
+// CsvParser.parseDataToArray();
+// const betterStringHasher = new BetterStringHasher().hash('dupa');
+// const lousyStringHasher = new LousyStringHasher().hash('dupa');
+// const degenerateStringHasher = new DegenerateStringHasher().hash('dupa');
+//
+// console.log(betterStringHasher);
+// console.log(lousyStringHasher);
+// console.log(degenerateStringHasher);
+// function main(): void {
+//     let userInput: UserInputReader = new UserInputReader()
+//     userInput.getInput();
+//     console.log('test');
+//     let data = new HashTable();
+//     data.convertToHashTable();
+// // userInput.getInput();
+//     console.log(data.getItem("a"));
+//     console.log(data.getItem("accept"));
+//     console.log(data.getItem("venom"));
+//     console.log(data.lookup("venom"));
+//     const dupa = new UserInputReader();
+//     dupa.getInput();
+// const tablica:string[] = [];
+//     const input: HTMLInputElement = document.querySelector('input[type="file"]')!
+//     input.addEventListener('change',function(e){
+//             console.log(input.files)
+//             const reader = new FileReader()
+//             reader.onload = function(){
+//                 if (typeof reader.result === "string") {
+//                     tablica.push(reader.result);
+//                 }
+//             }
+//             // @ts-ignore
+//         reader.readAsText(input.files[0])
+//         }, false
+//     )
+// const fs = require("fs");
+//
+// function parseDataToArray()
+// {
+//     return fs.readFileSync('../wordlist.txt')
+//         .toString() // convert Buffer to string
+//         .split('\n') // split string to lines
+//         .map((e: string) => e.trim());
+// }
+//
+//     // const csvParser = CsvParser.parseDataToArray();
+//     console.log(parseDataToArray());
+const csvParser = new CsvParser();
+csvParser.readFile();
+// }
+// main();
 //# sourceMappingURL=App.js.map

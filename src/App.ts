@@ -1,9 +1,12 @@
-import {CsvParser} from "./utils/CsvParser";
+import {CsvParser} from "./utils/CsvParser.js";
 import {BetterStringHasher} from "./hashers/BetterStringHasher";
 import {LousyStringHasher} from "./hashers/LousyStringHasher";
 import {DegenerateStringHasher} from "./hashers/DegenerateStringHasher";
-import {HashTable} from "./utils/HashTable";
+// import {HashTable} from "./utils/HashTable";
 import {UserInputReader} from "./utils/UserInputReader";
+// import * as fs from "fs";
+// import * as fs from "fs";
+// import * as fs from '../node_modules/fs';
 
 // CsvParser.parseDataToArray();
 
@@ -14,16 +17,49 @@ import {UserInputReader} from "./utils/UserInputReader";
 // console.log(betterStringHasher);
 // console.log(lousyStringHasher);
 // console.log(degenerateStringHasher);
-function main(): void {
-    let userInput: UserInputReader = new UserInputReader()
-    userInput.getInput();
-    console.log('test');
-    let data = new HashTable();
-    data.convertToHashTable();
-// userInput.getInput();
-    console.log(data.getItem("a"));
-    console.log(data.getItem("accept"));
-    console.log(data.getItem("venom"));
-    console.log(data.lookup("venom"));
-}
-main();
+// function main(): void {
+//     let userInput: UserInputReader = new UserInputReader()
+//     userInput.getInput();
+//     console.log('test');
+//     let data = new HashTable();
+//     data.convertToHashTable();
+// // userInput.getInput();
+//     console.log(data.getItem("a"));
+//     console.log(data.getItem("accept"));
+//     console.log(data.getItem("venom"));
+//     console.log(data.lookup("venom"));
+//     const dupa = new UserInputReader();
+//     dupa.getInput();
+// const tablica:string[] = [];
+//     const input: HTMLInputElement = document.querySelector('input[type="file"]')!
+//     input.addEventListener('change',function(e){
+//             console.log(input.files)
+//             const reader = new FileReader()
+//             reader.onload = function(){
+//                 if (typeof reader.result === "string") {
+//                     tablica.push(reader.result);
+//                 }
+//             }
+//             // @ts-ignore
+//         reader.readAsText(input.files[0])
+//         }, false
+//     )
+
+// const fs = require("fs");
+//
+// function parseDataToArray()
+// {
+//     return fs.readFileSync('../wordlist.txt')
+//         .toString() // convert Buffer to string
+//         .split('\n') // split string to lines
+//         .map((e: string) => e.trim());
+// }
+//
+//     // const csvParser = CsvParser.parseDataToArray();
+//     console.log(parseDataToArray());
+
+const csvParser = new CsvParser();
+csvParser.readFile();
+
+// }
+// main();

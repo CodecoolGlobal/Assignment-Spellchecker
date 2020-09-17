@@ -1,4 +1,6 @@
-import CsvParser from './CsvParser';
+// import CsvParser from './CsvParser';
+
+import {CsvParser} from "./CsvParser";
 
 const filepath: string = 'wordlist.txt';
 
@@ -8,7 +10,7 @@ export class SpellChecker {
 
     constructor() {
         this.fileParser = new CsvParser();
-        this.wordsList = this.fileParser.parse();// put correct method
+        // this.wordsList = this.fileParser.parse();// put correct method
     }
 
     findByCharDeleting(word: String, wordsList: Map<String, String>): Array<string> {

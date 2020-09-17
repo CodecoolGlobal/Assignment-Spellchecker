@@ -1,27 +1,25 @@
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
+export class CsvParser {
+    constructor() {
+        this.inputElement = document.getElementById("input");
+        this.textAreaElement = document.getElementById("textarea");
     }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "fs"], factory);
+    readFile() {
+        this.inputElement.addEventListener('change', () => {
+            let files = this.inputElement.files;
+            if (files.length == 0)
+                return;
+            const file = files[0];
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                const file = e.target.result;
+                if (typeof file === "string") {
+                    const lines = file.split(/\r\n|\n/);
+                    this.textAreaElement.value = lines.join('\n');
+                }
+            };
+            reader.onerror = (e) => alert(e.target.error.name);
+            reader.readAsText(file);
+        });
     }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.CsvParser = void 0;
-    var fs = require("fs");
-    var CsvParser = /** @class */ (function () {
-        function CsvParser() {
-        }
-        CsvParser.parseDataToArray = function () {
-            return fs.readFileSync('../wordlist.txt')
-                .toString() // convert Buffer to string
-                .split('\n') // split string to lines
-                .map(function (e) { return e.trim(); });
-        };
-        return CsvParser;
-    }());
-    exports.CsvParser = CsvParser;
-});
+}
 //# sourceMappingURL=CsvParser.js.map

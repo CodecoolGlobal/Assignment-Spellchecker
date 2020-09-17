@@ -5,14 +5,16 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script type="text/javascript" src="./dist/utils/UserInputReader.js" defer>  </script>
-    <script type="text/javascript" src="./dist/App.js " defer>  </script>
+<script type="module" src="./dist/App.js" defer>  </script>
+<!--    <script type="module" src="./dist/utils/CsvParser.js" defer>  </script>-->
+<!--    <script type="text/javascript" src="../App.js " defer>  </script>-->
 </head>
 
 <body class="container d-flex align-items-center flex-column" style="margin-top: 10px">
 
-
 <div class="col-xs-2">
+    <input id="input" type="file">
+    <textarea id="textarea" cols="30" rows="20"></textarea>
     <label for="ex1">PLEASE, WRITE A WORD</label>
     <input class="form-control" id="ex1" type="text">
 </div>
