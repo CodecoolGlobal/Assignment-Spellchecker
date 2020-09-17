@@ -12,8 +12,10 @@ const init = () => {
         const spellChecker = new SpellChecker(csvParser.lines);
         const wordChecker = new WordChecker(csvParser.lines);
         const inputValue = document.getElementById('ex1').value;
-        addSuggestions(wordChecker.checkInsertingLetterInEachPositionOfTheString(inputValue));
-        addSuggestions(spellChecker.findByCharDeleting(inputValue));
+        // addSuggestions(wordChecker.checkInsertingLetterInEachPositionOfTheString(inputValue));
+        // addSuggestions(wordChecker.checkReplacingEachLetterWithAnother(inputValue));
+        addSuggestions(wordChecker.findByCharDeleting(inputValue));
+        // addSuggestions(wordChecker.findByCharsSwapping(inputValue));
     });
     function addSuggestions(listOfWords) {
         let p = document.querySelector("p");
